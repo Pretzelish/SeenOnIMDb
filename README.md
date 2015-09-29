@@ -13,7 +13,7 @@ Instructions:
      - If you give an actor/actress, it will tell you all the movies you've seen that person in.
      - If you give a movie/show, it will go through the top 20 listed names and tell you all the movies (if any) you've seen them in.
 
-- Keep on putting in links if you want and seeing what all you've seen those vaguely recognizeable people in.
+- Keep on putting in links if you want and seeing what all you've seen those vaguely recognizable people in.
 
 - Type "" to exit the loop.
 
