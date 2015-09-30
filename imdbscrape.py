@@ -25,7 +25,7 @@ def actorsFilms(nmid):
     for f in films:
         moviedict[f.group(2)] = f.group(3)
         filmlist.append((f.group(2), f.group(1)))
-        if (f.group(2),f.group(1)) in tlist:
+        if f.group(2) in tlist:
             seenlist.append((f.group(2), f.group(3), f.group(1)))
     actordict[nmid] = filmlist
     return seenlist
@@ -43,7 +43,7 @@ def usersFilms(uid):
     titles = re.finditer(r"<td class=\"title\"><a href=\"/title/tt(\d+)/\">([^<]+)</a></td>\n<td class=\"year\">(\d+)</td>", pagehtml, re.MULTILINE)
     idlist = []
     for t in titles:
-        idlist.append((t.group(1), t.group(3)))
+        idlist.append(t.group(1))
         moviedict[t.group(1)] = re.sub("&#x27;", "'", t.group(2))
     if os.path.exists("imdbstore.dat"):
         os.remove("imdbstore.dat")
