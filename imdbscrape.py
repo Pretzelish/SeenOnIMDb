@@ -34,7 +34,10 @@ def usersFilms(uid):
     firstpage = urllib2.urlopen("http://www.imdb.com/user/ur"+uid+"/ratings?start=1&view=compact")
     pagehtml = firstpage.read()
     page = re.search(r"Page 1 of (\d+)", pagehtml)
-    pg = int(page.group(1))
+    if (page == None):
+        pg = 1
+    else:
+        pg = int(page.group(1))
     for i in range(1, pg):
         pagehtml += urllib2.urlopen("http://www.imdb.com/user/ur"+uid+"/ratings?start="+str((250*i)+1)+"&view=compact").read()
     titles = re.finditer(r"<td class=\"title\"><a href=\"/title/tt(\d+)/\">([^<]+)</a></td>\n<td class=\"year\">(\d+)</td>", pagehtml, re.MULTILINE)
